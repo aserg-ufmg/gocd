@@ -24,7 +24,6 @@ import java.util.Map;
 import java.util.UUID;
 
 import com.thoughtworks.go.config.*;
-import com.thoughtworks.go.config.GoConfigDao;
 import com.thoughtworks.go.domain.*;
 import com.thoughtworks.go.helper.BuildPlanMother;
 import com.thoughtworks.go.helper.JobInstanceMother;
@@ -36,9 +35,11 @@ import com.thoughtworks.go.server.service.ScheduleService;
 import com.thoughtworks.go.server.transaction.TransactionTemplate;
 import com.thoughtworks.go.server.ui.SortOrder;
 import com.thoughtworks.go.util.GoConfigFileHelper;
-import com.thoughtworks.go.util.LogFixture;
 import com.thoughtworks.go.util.TimeProvider;
 import com.thoughtworks.go.util.command.EnvironmentVariableContext;
+
+import movedclasses.RenameClass4;
+
 import org.apache.log4j.Level;
 import org.hamcrest.core.Is;
 import org.joda.time.DateTime;
@@ -355,7 +356,7 @@ public class JobInstanceSqlMapDaoTest {
     }
 
     @Test public void shouldLogStatusUpdatesOfCompletedJobs() throws Exception {
-        LogFixture logFixture = LogFixture.startListening(Level.WARN);
+        RenameClass4 logFixture = RenameClass4.startListening(Level.WARN);
 
         JobInstance instance = runningJob("1");
         completeJobs(instance);

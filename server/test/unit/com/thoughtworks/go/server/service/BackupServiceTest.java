@@ -27,6 +27,7 @@ import com.thoughtworks.go.service.ConfigRepository;
 import com.thoughtworks.go.util.SystemEnvironment;
 import com.thoughtworks.go.util.TempFiles;
 import com.thoughtworks.go.util.ThrowingFn;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Matchers;

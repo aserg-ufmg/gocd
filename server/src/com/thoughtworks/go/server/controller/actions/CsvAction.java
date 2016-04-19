@@ -17,9 +17,10 @@
 package com.thoughtworks.go.server.controller.actions;
 
 import javax.servlet.http.HttpServletResponse;
-import static javax.servlet.http.HttpServletResponse.SC_OK;
 
-import com.thoughtworks.go.util.Csv;
+import static javax.servlet.http.HttpServletResponse.SC_OK;
+import movedclasses.RenameClass1;
+
 import org.springframework.web.servlet.ModelAndView;
 
 public class CsvAction implements RestfulAction {
@@ -35,7 +36,7 @@ public class CsvAction implements RestfulAction {
         this.message = String.valueOf(message);
     }
 
-    public static RestfulAction csvFound(Csv csv, String jobName) {
+    public static RestfulAction csvFound(RenameClass1 csv, String jobName) {
         return new CsvAction(SC_OK, "text/csv", csv.toString(), jobName);
     }
 

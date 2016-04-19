@@ -20,13 +20,18 @@ import com.jezhumble.javasysmon.JavaSysMon;
 import com.jezhumble.javasysmon.OsProcess;
 import com.jezhumble.javasysmon.ProcessInfo;
 import com.jezhumble.javasysmon.ProcessVisitor;
+
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNot.not;
+import movedclasses.RenameClass4;
 
 import org.junit.After;
+
 import static org.junit.Assert.assertThat;
+
 import org.junit.Test;
+
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -42,7 +47,7 @@ public class SubprocessLoggerTest {
     public void shouldNotLogAnythingWhenNoChildProcessesFound() {
         JavaSysMon sysMon = mock(JavaSysMon.class);
         logger = new SubprocessLogger(sysMon);
-        LogFixture log = LogFixture.startListening();
+        RenameClass4 log = RenameClass4.startListening();
         logger.run();
         assertThat(log.allLogs(), is(""));
     }
@@ -50,7 +55,7 @@ public class SubprocessLoggerTest {
     @Test
     public void shouldLogDefaultMessageWhenNoMessageGiven() {
         logger = new SubprocessLogger(stubSysMon());
-        LogFixture log = LogFixture.startListening();
+        RenameClass4 log = RenameClass4.startListening();
         logger.run();
         String allLogs = log.allLogs();
         log.stopListening();
@@ -60,7 +65,7 @@ public class SubprocessLoggerTest {
     @Test
     public void shouldLogAllTheRunningChildProcesses() {
         logger = new SubprocessLogger(stubSysMon());
-        LogFixture log = LogFixture.startListening();
+        RenameClass4 log = RenameClass4.startListening();
         logger.registerAsExitHook("foo bar baz");
         logger.run();
         String allLogs = log.allLogs();

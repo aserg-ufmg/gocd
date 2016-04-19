@@ -33,8 +33,10 @@ import com.thoughtworks.go.server.transaction.SqlMapClientDaoSupport;
 import com.thoughtworks.go.server.transaction.TransactionSynchronizationManager;
 import com.thoughtworks.go.server.transaction.TransactionTemplate;
 import com.thoughtworks.go.util.GoConfigFileHelper;
-import com.thoughtworks.go.util.LogFixture;
 import com.thoughtworks.go.util.SystemEnvironment;
+
+import movedclasses.RenameClass4;
+
 import org.apache.commons.codec.digest.DigestUtils;
 import org.junit.After;
 import org.junit.Before;
@@ -76,7 +78,7 @@ public class GoCacheTest {
     @Autowired private DatabaseStrategy databaseStrategy;
 
     private static String largeObject;
-    private LogFixture logFixture;
+    private RenameClass4 logFixture;
     private GoConfigFileHelper configHelper = new GoConfigFileHelper();
 
     @Before
@@ -85,7 +87,7 @@ public class GoCacheTest {
         configHelper.onSetUp();
         dbHelper.onSetUp();
         goCache.clear();
-        logFixture = LogFixture.startListening();
+        logFixture = RenameClass4.startListening();
     }
 
     @After

@@ -27,7 +27,9 @@ import com.thoughtworks.go.server.service.PropertiesService;
 import com.thoughtworks.go.server.service.RestfulService;
 import com.thoughtworks.go.server.transaction.TransactionTemplate;
 import com.thoughtworks.go.util.GoConfigFileHelper;
-import com.thoughtworks.go.util.Csv;
+
+import movedclasses.RenameClass1;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -81,7 +83,7 @@ public class PropertiesControllerTest {
 
         controller.jobsSearch(fixture.pipelineName, fixture.devStage,
                 PipelineWithTwoStages.JOB_FOR_DEV_STAGE, String.valueOf(pipeline2.getCounter()), null, response);
-        Csv csv = Csv.fromString(response.getContentAsString());
+        RenameClass1 csv = RenameClass1.fromString(response.getContentAsString());
         assertThat(csv.containsRow(createCsvRow(pipeline1)), is(true));
         assertThat(csv.containsRow(createCsvRow(pipeline2)), is(true));
         assertThat(csv.containsRow(createCsvRow(pipeline3)), is(false));
@@ -95,7 +97,7 @@ public class PropertiesControllerTest {
 
         controller.jobsSearch(fixture.pipelineName, fixture.devStage,
                 PipelineWithTwoStages.JOB_FOR_DEV_STAGE, null, null, response);
-        Csv csv = Csv.fromString(response.getContentAsString());
+        RenameClass1 csv = RenameClass1.fromString(response.getContentAsString());
         assertThat(csv.rowCount(), is(3));
     }
 

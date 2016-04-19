@@ -17,8 +17,11 @@
 package com.thoughtworks.go.plugin.infra.service;
 
 import com.googlecode.junit.ext.checkers.OSChecker;
-import com.thoughtworks.go.util.LogFixture;
 import com.thoughtworks.go.util.SystemEnvironment;
+
+import movedclasses.ExtractedSuperClass;
+import movedclasses.RenameClass4;
+
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.FileAppender;
 import org.apache.log4j.Level;
@@ -65,7 +68,7 @@ public class DefaultPluginLoggingServiceIntegrationTest {
 
     @Test
     public void shouldNotLogPluginMessagesToRootLogger() throws Exception {
-        LogFixture appender = LogFixture.startListening(Level.INFO);
+        ExtractedSuperClass appender = RenameClass4.startListening(Level.INFO);
         Logger.getRootLogger().addAppender(appender);
 
         DefaultPluginLoggingService service = new DefaultPluginLoggingService(systemEnvironment);

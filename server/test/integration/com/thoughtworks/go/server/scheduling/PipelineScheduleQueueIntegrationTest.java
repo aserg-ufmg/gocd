@@ -19,7 +19,6 @@ package com.thoughtworks.go.server.scheduling;
 import java.util.List;
 
 import com.thoughtworks.go.config.*;
-import com.thoughtworks.go.config.GoConfigDao;
 import com.thoughtworks.go.config.materials.MaterialConfigs;
 import com.thoughtworks.go.config.remote.ConfigRepoConfig;
 import com.thoughtworks.go.config.remote.RepoConfigOrigin;
@@ -38,8 +37,10 @@ import com.thoughtworks.go.server.service.PipelineScheduleQueue;
 import com.thoughtworks.go.server.transaction.TransactionTemplate;
 import com.thoughtworks.go.util.GoConfigFileHelper;
 import com.thoughtworks.go.util.FileUtil;
-import com.thoughtworks.go.util.LogFixture;
 import com.thoughtworks.go.util.TimeProvider;
+
+import movedclasses.RenameClass4;
+
 import org.hamcrest.Description;
 import org.hamcrest.TypeSafeMatcher;
 import org.junit.After;
@@ -305,7 +306,7 @@ public class PipelineScheduleQueueIntegrationTest {
 
     @Test
     public void shouldLogWithInfoIfPipelineISScheduled() throws Exception {
-        LogFixture logging = LogFixture.startListening();
+        RenameClass4 logging = RenameClass4.startListening();
 
         JobConfigs jobConfigs = new JobConfigs();
         Resources resources = new Resources(new Resource("resource1"));

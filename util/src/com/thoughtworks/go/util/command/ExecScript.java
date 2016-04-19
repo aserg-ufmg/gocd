@@ -18,6 +18,8 @@ package com.thoughtworks.go.util.command;
 
 import org.apache.commons.lang.StringUtils;
 
+import com.thoughtworks.go.util.Script;
+
 public class ExecScript implements Script, StreamConsumer {
     private String errorStr;
     private int exitCode;

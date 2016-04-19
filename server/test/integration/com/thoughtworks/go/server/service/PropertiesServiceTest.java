@@ -30,7 +30,9 @@ import com.thoughtworks.go.server.dao.PropertyDao;
 import com.thoughtworks.go.server.persistence.MaterialRepository;
 import com.thoughtworks.go.server.transaction.TransactionTemplate;
 import com.thoughtworks.go.util.GoConfigFileHelper;
-import com.thoughtworks.go.util.Csv;
+
+import movedclasses.RenameClass1;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -104,7 +106,7 @@ public class PropertiesServiceTest {
         List<Properties> history = new ArrayList<Properties>();
         history.add(new Properties(new Property("a", "100"), new Property("b", "200")));
         history.add(new Properties(new Property("a", "300"), new Property("b", "400")));
-        Csv csv = PropertiesService.fromAllPropertiesHistory(history);
+        RenameClass1 csv = PropertiesService.fromAllPropertiesHistory(history);
         assertThat(csv.toString(), is(
                 "a,b\n"
                         + "100,200\n"
@@ -113,7 +115,7 @@ public class PropertiesServiceTest {
     }
     @Test public void shouldGenerateFromProperties() throws Exception {
         Properties props = new Properties(new Property("a", "1"), new Property("b", "2"));
-        Csv csv = PropertiesService.fromProperties(props);
+        RenameClass1 csv = PropertiesService.fromProperties(props);
         assertThat(csv.toString(), is(
                 "a,b\n"
                         + "1,2\n"

@@ -34,7 +34,9 @@ import com.thoughtworks.go.agent.common.util.LoggingHelper;
 import com.thoughtworks.go.mothers.ServerUrlGeneratorMother;
 import com.thoughtworks.go.agent.testhelper.FakeBootstrapperServer;
 import com.thoughtworks.go.util.FileDigester;
-import com.thoughtworks.go.util.LogFixture;
+
+import movedclasses.RenameClass4;
+
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
@@ -143,7 +145,7 @@ public class AgentProcessParentImplTest {
     @Test
     public void shouldLogIntrruptOnAgentProcess() throws InterruptedException {
         final List<String> cmd = new ArrayList<String>();
-        LogFixture logFixture = LogFixture.startListening();
+        RenameClass4 logFixture = RenameClass4.startListening();
         try {
             Process subProcess = mockProcess();
             when(subProcess.waitFor()).thenThrow(new InterruptedException("bang bang!"));
@@ -180,7 +182,7 @@ public class AgentProcessParentImplTest {
     @Test
     public void shouldLogFailureToStartSubprocess() throws InterruptedException {
         final List<String> cmd = new ArrayList<String>();
-        LogFixture logFixture = LogFixture.startListening();
+        RenameClass4 logFixture = RenameClass4.startListening();
         try {
             AgentProcessParentImpl bootstrapper = new AgentProcessParentImpl() {
                 @Override
@@ -200,7 +202,7 @@ public class AgentProcessParentImplTest {
     @Test
     public void shouldClose_STDIN_and_STDOUT_ofSubprocess() throws InterruptedException {
         final List<String> cmd = new ArrayList<String>();
-        LogFixture logFixture = LogFixture.startListening();
+        RenameClass4 logFixture = RenameClass4.startListening();
         try {
             final OutputStream stdin = mock(OutputStream.class);
             Process subProcess = mockProcess(new ByteArrayInputStream(new byte[0]), new ByteArrayInputStream(new byte[0]), stdin);

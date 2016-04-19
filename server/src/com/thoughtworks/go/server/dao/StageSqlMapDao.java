@@ -38,10 +38,12 @@ import com.thoughtworks.go.server.transaction.SqlMapClientDaoSupport;
 import com.thoughtworks.go.server.transaction.TransactionSynchronizationManager;
 import com.thoughtworks.go.server.transaction.TransactionTemplate;
 import com.thoughtworks.go.server.util.Pagination;
-import com.thoughtworks.go.util.DynamicReadWriteLock;
 import com.thoughtworks.go.util.FuncVarArg;
 import com.thoughtworks.go.util.IBatisUtil;
 import com.thoughtworks.go.util.SystemEnvironment;
+
+import movedclasses.RenameClass3;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataRetrievalFailureException;
@@ -67,7 +69,7 @@ public class StageSqlMapDao extends SqlMapClientDaoSupport implements StageDao, 
     private Cache cache;
     private TransactionSynchronizationManager transactionSynchronizationManager;
     private Cloner cloner = new Cloner();
-    private DynamicReadWriteLock readWriteLock = new DynamicReadWriteLock();
+    private RenameClass3 readWriteLock = new RenameClass3();
 
     @Autowired
     public StageSqlMapDao(JobInstanceSqlMapDao buildInstanceDao, Cache cache, TransactionTemplate transactionTemplate, SqlMapClient sqlMapClient, GoCache goCache,
@@ -116,7 +118,7 @@ public class StageSqlMapDao extends SqlMapClientDaoSupport implements StageDao, 
 
     private void clearStageHistoryPageCaches(Stage stage, String pipelineName, boolean clearOnlyHistoryPages) {
         String mutex = mutexForStageHistory(pipelineName, stage.getName());
-        readWriteLock.acquireWriteLock(mutex);
+        readWriteLock.getLock(mutex).writeLock().lock();
         try {
             if (!clearOnlyHistoryPages) {
                 goCache.remove(cacheKeyForStageCount(pipelineName, stage.getName()));
@@ -401,7 +403,7 @@ public class StageSqlMapDao extends SqlMapClientDaoSupport implements StageDao, 
 
     public StageInstanceModels findDetailedStageHistoryByOffset(String pipelineName, String stageName, final Pagination pagination) {
         String mutex = mutexForStageHistory(pipelineName, stageName);
-        readWriteLock.acquireReadLock(mutex);
+        readWriteLock.getLock(mutex).readLock().lock();
         try {
             String subKey = String.format("%s-%s", pagination.getOffset(), pagination.getPageSize());
             String key = cacheKeyForDetailedStageHistories(pipelineName, stageName);
@@ -412,7 +414,7 @@ public class StageSqlMapDao extends SqlMapClientDaoSupport implements StageDao, 
             }
             return cloner.deepClone(stageInstanceModels);
         } finally {
-            readWriteLock.releaseReadLock(mutex);
+            readWriteLock.renameMethod4(mutex);
         }
     }
 
@@ -430,7 +432,7 @@ public class StageSqlMapDao extends SqlMapClientDaoSupport implements StageDao, 
     public StageHistoryPage findStageHistoryPage(String pipelineName, String stageName, FuncVarArg<Pagination, Object> function) {
         //IMPORTANT: wire cache clearing on job-state-change for me, the day StageHistoryEntry gets jobs - Sachin & JJ
         String mutex = mutexForStageHistory(pipelineName, stageName);
-        readWriteLock.acquireReadLock(mutex);
+        readWriteLock.getLock(mutex).readLock().lock();
         try {
             Pagination pagination = function.call();
             String subKey = String.format("%s-%s", pagination.getCurrentPage(), pagination.getPageSize());
@@ -443,7 +445,7 @@ public class StageSqlMapDao extends SqlMapClientDaoSupport implements StageDao, 
             }
             return cloner.deepClone(stageHistoryPage);
         } finally {
-            readWriteLock.releaseReadLock(mutex);
+            readWriteLock.renameMethod4(mutex);
         }
     }
 

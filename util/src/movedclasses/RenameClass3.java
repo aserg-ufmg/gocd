@@ -14,29 +14,23 @@
  * limitations under the License.
  *************************GO-LICENSE-END***********************************/
 
-package com.thoughtworks.go.util;
+package movedclasses;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
+import com.thoughtworks.go.util.Procedure;
+
 /**
  * @understands handling of multiple dynamically-created readWriteLocks
  */
-public class DynamicReadWriteLock {
+public class RenameClass3 {
     private Map<String, ReadWriteLock> locks = new HashMap<String, ReadWriteLock>();
 
-    public void acquireReadLock(String key) {
-        getLock(key).readLock().lock();
-    }
-
-    public void releaseReadLock(String key) {
+    public void renameMethod4(String key) {
         getLock(key).readLock().unlock();
-    }
-
-    public void acquireWriteLock(String key) {
-        getLock(key).writeLock().lock();
     }
 
     public void releaseWriteLock(String key) {
@@ -54,22 +48,12 @@ public class DynamicReadWriteLock {
         }
     }
 
-    public void withWriteLock(String mutex, Procedure procedure) {
-        acquireWriteLock(mutex);
-        try {
-            procedure.call();
-        } finally {
-            releaseWriteLock(mutex);
-        }
-
-    }
-
     public void withReadLock(String mutex, Procedure procedure) {
-        acquireReadLock(mutex);
+        getLock(mutex).readLock().lock();
         try {
             procedure.call();
         } finally {
-            releaseReadLock(mutex);
+            renameMethod4(mutex);
         }
     }
 }

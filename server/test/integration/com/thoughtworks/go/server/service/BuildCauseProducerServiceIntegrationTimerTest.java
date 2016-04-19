@@ -32,9 +32,11 @@ import com.thoughtworks.go.server.scheduling.BuildCauseProducerService;
 import com.thoughtworks.go.server.service.result.ServerHealthStateOperationResult;
 import com.thoughtworks.go.server.transaction.TransactionTemplate;
 import com.thoughtworks.go.util.GoConfigFileHelper;
-import com.thoughtworks.go.util.LogFixture;
 import com.thoughtworks.go.util.SystemEnvironment;
 import com.thoughtworks.go.util.TestFileUtil;
+
+import movedclasses.RenameClass4;
+
 import org.apache.log4j.Level;
 import org.hamcrest.BaseMatcher;
 import org.hamcrest.Description;
@@ -70,7 +72,7 @@ public class BuildCauseProducerServiceIntegrationTimerTest {
 
     private GoConfigFileHelper configHelper = new GoConfigFileHelper();
     private ScheduleTestUtil u;
-    private LogFixture logFixture;
+    private RenameClass4 logFixture;
 
     @Before
     public void setUp() throws Exception {
@@ -80,7 +82,7 @@ public class BuildCauseProducerServiceIntegrationTimerTest {
 
         dbHelper.onSetUp();
         u = new ScheduleTestUtil(transactionTemplate, materialRepository, dbHelper, configHelper);
-        logFixture = LogFixture.startListening();
+        logFixture = RenameClass4.startListening();
     }
 
     @After

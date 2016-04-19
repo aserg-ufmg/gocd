@@ -16,6 +16,5 @@
 
 package com.thoughtworks.go.util;
 
-public interface Func<T,A> {
-    T call(A arg);
+public interface Func<T,A> extends ExtractedInterface<T, A> {
 }

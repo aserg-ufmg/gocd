@@ -17,24 +17,29 @@
 package com.thoughtworks.go.server.security;
 
 import java.io.IOException;
+
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.thoughtworks.go.util.LogFixture;
-
 import static org.hamcrest.core.Is.is;
+import movedclasses.RenameClass4;
+
 import org.junit.After;
 import org.junit.AfterClass;
+
 import static org.junit.Assert.assertThat;
+
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
+
 import org.springframework.security.AuthenticationManager;
 import org.springframework.security.BadCredentialsException;
 import org.springframework.security.GrantedAuthority;
@@ -50,7 +55,7 @@ public class OauthAuthenticationFilterTest {
     private HttpServletResponse res;
     private FilterChain chain;
     private SecurityContext securityContext;
-    private LogFixture logFixture;
+    private RenameClass4 logFixture;
 
     @BeforeClass
     public static void beforeAll() throws Exception {
@@ -71,8 +76,8 @@ public class OauthAuthenticationFilterTest {
         req = mock(HttpServletRequest.class);
         res = mock(HttpServletResponse.class);
         chain = mock(FilterChain.class);
-        LogFixture.enableDebug();
-        logFixture = LogFixture.startListening();
+        RenameClass4.enableDebug();
+        logFixture = RenameClass4.startListening();
     }
 
     @After

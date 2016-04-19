@@ -81,6 +81,8 @@ import java.util.Vector;
 
 import com.thoughtworks.go.util.ProcessManager;
 import com.thoughtworks.go.util.ProcessWrapper;
+import com.thoughtworks.go.util.Script;
+
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 

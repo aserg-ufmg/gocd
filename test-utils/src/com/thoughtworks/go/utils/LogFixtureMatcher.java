@@ -16,18 +16,19 @@
 
 package com.thoughtworks.go.utils;
 
-import com.thoughtworks.go.util.LogFixture;
+import movedclasses.RenameClass4;
+
 import org.hamcrest.Matcher;
 import org.hamcrest.Description;
 import org.apache.log4j.Level;
 import org.hamcrest.TypeSafeMatcher;
 
 public class LogFixtureMatcher {
-    public static Matcher<LogFixture> containsLog(final Level level, final String message) {
-        return new TypeSafeMatcher<LogFixture>() {
-            private LogFixture logFixture;
+    public static Matcher<RenameClass4> containsLog(final Level level, final String message) {
+        return new TypeSafeMatcher<RenameClass4>() {
+            private RenameClass4 logFixture;
 
-            @Override public boolean matchesSafely(LogFixture item) {
+            @Override public boolean matchesSafely(RenameClass4 item) {
                 logFixture = item;
                 return logFixture.contains(level, message);
             }

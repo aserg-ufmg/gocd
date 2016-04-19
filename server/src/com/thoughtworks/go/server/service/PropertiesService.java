@@ -28,14 +28,18 @@ import com.thoughtworks.go.domain.JobState;
 import com.thoughtworks.go.domain.JobStateTransition;
 import com.thoughtworks.go.domain.Properties;
 import com.thoughtworks.go.domain.Property;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
+
 import com.thoughtworks.go.server.controller.actions.PropertyAction;
 import com.thoughtworks.go.server.controller.actions.RestfulAction;
 import com.thoughtworks.go.server.dao.PropertyDao;
 import com.thoughtworks.go.server.transaction.TransactionTemplate;
-import com.thoughtworks.go.util.Csv;
-import com.thoughtworks.go.util.CsvRow;
+
+import movedclasses.RenameClass1;
+import movedclasses.RenameClass2;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.TransactionStatus;
@@ -188,22 +192,22 @@ public class PropertiesService implements JobPropertiesReader {
         return propertyDao.list(id);
     }
 
-    public static Csv fromAllPropertiesHistory(List<Properties> jobPropertiesHistory) {
-        Csv csv = new Csv();
+    public static RenameClass1 fromAllPropertiesHistory(List<Properties> jobPropertiesHistory) {
+        RenameClass1 csv = new RenameClass1();
         for (Properties properties : jobPropertiesHistory) {
-            CsvRow row = csv.newRow();
+            RenameClass2 row = csv.renameMethod1();
             for (Property property : properties) {
-                row.put(property.getKey(), property.getValue());
+                row.renameMethod2(property.getKey(), property.getValue());
             }
         }
         return csv;
     }
 
-    public static Csv fromProperties(Properties properties) {
-        Csv csv = new Csv();
-        CsvRow row = csv.newRow();
+    public static RenameClass1 fromProperties(Properties properties) {
+        RenameClass1 csv = new RenameClass1();
+        RenameClass2 row = csv.renameMethod1();
         for (Property property : properties) {
-            row.put(property.getKey(), property.getValue());
+            row.renameMethod2(property.getKey(), property.getValue());
         }
         return csv;
     }

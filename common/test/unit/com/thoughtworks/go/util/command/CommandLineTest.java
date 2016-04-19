@@ -27,8 +27,9 @@ import com.googlecode.junit.ext.JunitExtRunner;
 import com.googlecode.junit.ext.RunIf;
 import com.googlecode.junit.ext.checkers.OSChecker;
 import com.thoughtworks.go.util.*;
-import com.thoughtworks.go.util.LogFixture;
-import com.thoughtworks.go.util.ProcessWrapper;
+
+import movedclasses.RenameClass4;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -127,8 +128,8 @@ public class CommandLineTest {
 
     @Test
     public void shouldLogPasswordsOnTheLogAsStars() {
-        LogFixture logFixture = LogFixture.startListening();
-        LogFixture.enableDebug();
+        RenameClass4 logFixture = RenameClass4.startListening();
+        RenameClass4.enableDebug();
         CommandLine line = CommandLine.createCommandLine("notexist").withArg(new PasswordArgument("secret"));
         try {
             line.runOrBomb(null);
@@ -142,8 +143,8 @@ public class CommandLineTest {
     @Test
     @RunIf(value = OSChecker.class, arguments = OSChecker.LINUX)
     public void shouldNotLogPasswordsFromStream() {
-        LogFixture logFixture = LogFixture.startListening();
-        LogFixture.enableDebug();
+        RenameClass4 logFixture = RenameClass4.startListening();
+        RenameClass4.enableDebug();
         CommandLine line = CommandLine.createCommandLine("echo").withArg("=>").withArg(new PasswordArgument("secret"));
         line.runOrBomb(null);
 

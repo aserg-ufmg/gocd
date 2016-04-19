@@ -16,22 +16,26 @@
 
 package com.thoughtworks.go.helper;
 
-import com.thoughtworks.go.util.LogFixture;
 import static org.hamcrest.Matchers.not;
 import static org.hamcrest.core.Is.is;
+import movedclasses.RenameClass4;
+
 import org.junit.After;
+
 import static org.junit.Assert.assertThat;
+
 import org.junit.Before;
 import org.junit.Test;
+
 import static org.hamcrest.CoreMatchers.containsString;
 
 public class RandomPortTest {
-    private LogFixture logFixture;
+    private RenameClass4 logFixture;
 
     @Before
     public void setUp() throws Exception {
-        logFixture = LogFixture.startListening();
-        LogFixture.enableDebug();
+        logFixture = RenameClass4.startListening();
+        RenameClass4.enableDebug();
     }
 
     @After

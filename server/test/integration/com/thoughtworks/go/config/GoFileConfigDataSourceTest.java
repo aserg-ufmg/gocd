@@ -29,6 +29,10 @@ import com.thoughtworks.go.server.util.ServerVersion;
 import com.thoughtworks.go.serverhealth.ServerHealthService;
 import com.thoughtworks.go.service.ConfigRepository;
 import com.thoughtworks.go.util.*;
+
+import movedclasses.ExtractedSuperClass;
+import movedclasses.RenameClass4;
+
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.io.FileUtils;
 import org.eclipse.jgit.api.errors.GitAPIException;
@@ -264,7 +268,7 @@ public class GoFileConfigDataSourceTest {
 
     @Test
     public void shouldNotReloadIfConfigDoesNotChange() throws Exception {
-        LogFixture log = LogFixture.startListening();
+        ExtractedSuperClass log = RenameClass4.startListening();
         dataSource.reloadIfModified();
         GoConfigHolder loadedConfig = dataSource.load();
         assertThat(log.getLog(), containsString("Config file changed at"));

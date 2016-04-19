@@ -40,8 +40,10 @@ import com.thoughtworks.go.server.service.result.OperationResult;
 import com.thoughtworks.go.server.transaction.TestTransactionSynchronizationManager;
 import com.thoughtworks.go.server.transaction.TestTransactionTemplate;
 import com.thoughtworks.go.serverhealth.ServerHealthService;
-import com.thoughtworks.go.util.LogFixture;
 import com.thoughtworks.go.util.TimeProvider;
+
+import movedclasses.RenameClass4;
+
 import org.apache.log4j.Level;
 import org.junit.Before;
 import org.junit.Test;
@@ -147,7 +149,7 @@ public class JobRerunScheduleServiceTest {
                 environmentConfigService, lockService, serverHealthService, txnTemplate, mock(AgentService.class), null, null, null, null, null, schedulingPerformanceLogger);
 
         HttpOperationResult result = new HttpOperationResult();
-        LogFixture logFixture = LogFixture.startListening();
+        RenameClass4 logFixture = RenameClass4.startListening();
         Stage stage = service.rerunJobs(firstStage, a("unit"), result);
         assertThat(logFixture.contains(Level.ERROR, "Job rerun request for job(s) [unit] could not be completed because of unexpected failure. Cause: The whole world is a big null."), is(true));
         logFixture.stopListening();

@@ -22,8 +22,10 @@ import com.thoughtworks.go.server.messaging.JobStatusTopic;
 import com.thoughtworks.go.server.service.AgentRuntimeInfo;
 import com.thoughtworks.go.server.service.AgentService;
 import com.thoughtworks.go.server.service.BuildRepositoryService;
-import com.thoughtworks.go.util.LogFixture;
 import com.thoughtworks.go.util.SystemEnvironment;
+
+import movedclasses.RenameClass4;
+
 import org.apache.log4j.Level;
 import org.hamcrest.Matchers;
 import org.junit.After;
@@ -47,7 +49,7 @@ public class BuildRepositoryRemoteImplTest {
     private AgentService agentService;
     private JobStatusTopic jobStatusTopic;
     private BuildRepositoryRemoteImpl buildRepository;
-    private LogFixture logFixture;
+    private RenameClass4 logFixture;
     private AgentRuntimeInfo info;
 
     @Before
@@ -56,7 +58,7 @@ public class BuildRepositoryRemoteImplTest {
         agentService = mock(AgentService.class);
         jobStatusTopic = mock(JobStatusTopic.class);
         buildRepository = new BuildRepositoryRemoteImpl(repositoryService, agentService, jobStatusTopic);
-        logFixture = LogFixture.startListening(Level.TRACE);
+        logFixture = RenameClass4.startListening(Level.TRACE);
         info = new AgentRuntimeInfo(new AgentIdentifier("host", "192.168.1.1", "uuid"), AgentRuntimeStatus.Idle, currentWorkingDirectory(), "cookie", null);
     }
 

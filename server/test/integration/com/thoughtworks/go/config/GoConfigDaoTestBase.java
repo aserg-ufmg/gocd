@@ -30,6 +30,9 @@ import com.thoughtworks.go.server.domain.Username;
 import com.thoughtworks.go.server.service.PipelineConfigService;
 import com.thoughtworks.go.server.service.result.LocalizedOperationResult;
 import com.thoughtworks.go.util.*;
+
+import movedclasses.RenameClass4;
+
 import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 import org.mockito.Matchers;
@@ -54,7 +57,7 @@ public abstract class GoConfigDaoTestBase {
     protected GoConfigFileHelper configHelper ;
     protected GoConfigDao goConfigDao ;
     protected CachedGoConfig cachedGoConfig;
-    protected LogFixture logger;
+    protected RenameClass4 logger;
 
     @Test
     public void shouldCreateCruiseConfigFromBasicConfigFile() throws Exception {

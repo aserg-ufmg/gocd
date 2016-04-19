@@ -21,8 +21,10 @@ import java.io.IOException;
 import java.net.SocketException;
 
 import com.thoughtworks.go.util.HttpService;
-import com.thoughtworks.go.util.LogFixture;
 import com.thoughtworks.go.util.TestingClock;
+
+import movedclasses.RenameClass4;
+
 import org.apache.log4j.Level;
 import org.junit.Assert;
 import org.junit.Before;
@@ -70,7 +72,7 @@ public class DownloadActionTest {
     @Test
     public void shouldRetryThreeTimesWhenDownloadFails() throws Exception {
         when(fetchHandler.handleResult(200, publisher)).thenReturn(true);
-        LogFixture logging = LogFixture.startListening();
+        RenameClass4 logging = RenameClass4.startListening();
 
         FailSometimesHttpService httpService = new FailSometimesHttpService(3);
         DownloadAction downloadAction = new DownloadAction(httpService, publisher, clock);
@@ -91,7 +93,7 @@ public class DownloadActionTest {
 
     @Test
     public void shouldFailAfterFourthTryWhenDownloadFails() throws Exception {
-        LogFixture logging = LogFixture.startListening();
+        RenameClass4 logging = RenameClass4.startListening();
 
         FailSometimesHttpService httpService = new FailSometimesHttpService(99);
         try {
@@ -141,7 +143,7 @@ public class DownloadActionTest {
         }
     }
 
-    private void shouldHaveLogged(LogFixture logging, Level level, String message) {
+    private void shouldHaveLogged(RenameClass4 logging, Level level, String message) {
         Assert.assertTrue(
                 "Expected log to contain " + message + " but got:\n" + logging.allLogs(),
                 logging.contains(level, message));

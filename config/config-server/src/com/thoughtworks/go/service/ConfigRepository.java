@@ -21,6 +21,9 @@ import com.thoughtworks.go.config.exceptions.ConfigFileHasChangedException;
 import com.thoughtworks.go.config.exceptions.ConfigMergeException;
 import com.thoughtworks.go.domain.GoConfigRevision;
 import com.thoughtworks.go.util.*;
+
+import movedclasses.RenameClass5;
+
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.NullArgumentException;
 import org.eclipse.jgit.api.*;
@@ -103,7 +106,7 @@ public class ConfigRepository {
             final File file = new File(workingDir, CRUISE_CONFIG_XML);
             FileUtil.writeContentToFile(rev.getContent(), file);
             final AddCommand addCommand = git.add();
-            doLocked(new VoidThrowingFn<Exception>() {
+            doLocked(new RenameClass5<Exception>() {
                 public void run() throws Exception {
                     addCommand.addFilepattern(CRUISE_CONFIG_XML).call();
                     git.commit().setAuthor(rev.getUsername(), STUDIOS_PRODUCT).setMessage(rev.getComment()).call();
@@ -399,7 +402,7 @@ public class ConfigRepository {
         if (!systemEnvironment.get(SystemEnvironment.GO_CONFIG_REPO_PERIODIC_GC)){
             return;
         }
-        doLocked(new VoidThrowingFn<Exception>() {
+        doLocked(new RenameClass5<Exception>() {
             public void run() throws Exception {
                 try {
                     LOGGER.info("Before GC: {}", git.gc().getStatistics());

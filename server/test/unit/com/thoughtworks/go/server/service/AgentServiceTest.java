@@ -33,9 +33,12 @@ import com.thoughtworks.go.serverhealth.HealthStateType;
 import com.thoughtworks.go.serverhealth.ServerHealthService;
 import com.thoughtworks.go.serverhealth.ServerHealthState;
 import com.thoughtworks.go.util.FileUtil;
-import com.thoughtworks.go.util.LogFixture;
 import com.thoughtworks.go.util.SystemEnvironment;
 import com.thoughtworks.go.utils.Timeout;
+
+import movedclasses.ExtractedSuperClass;
+import movedclasses.RenameClass4;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -55,7 +58,7 @@ import static org.mockito.Mockito.*;
 
 public class AgentServiceTest {
     private AgentService agentService;
-    private LogFixture logFixture;
+    private ExtractedSuperClass logFixture;
     private AgentInstances agentInstances;
     private AgentConfig config;
     private AgentDao agentDao;
@@ -72,7 +75,7 @@ public class AgentServiceTest {
         uuidGenerator = mock(UuidGenerator.class);
         agentService = new AgentService(mock(AgentConfigService.class), new SystemEnvironment(), agentInstances, mock(EnvironmentConfigService.class),
                 mock(GoConfigService.class), mock(SecurityService.class), agentDao, uuidGenerator, serverHealthService = mock(ServerHealthService.class));
-        logFixture = LogFixture.startListening();
+        logFixture = RenameClass4.startListening();
         agentIdentifier = config.getAgentIdentifier();
         when(agentDao.cookieFor(agentIdentifier)).thenReturn("cookie");
     }

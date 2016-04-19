@@ -20,18 +20,20 @@ import java.util.HashMap;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
+import movedclasses.RenameClass1;
+
 import org.junit.Test;
 
 public class CsvTest {
 
     @Test public void shouldOutputFieldsAndRowsAsString() throws Exception {
-        Csv csv = new Csv();
-        csv.newRow()
-                .put("a", "1")
-                .put("b", "2");
-        csv.newRow()
-                .put("a", "3")
-                .put("b", "4");
+        RenameClass1 csv = new RenameClass1();
+        csv.renameMethod1()
+                .renameMethod2("a", "1")
+                .renameMethod2("b", "2");
+        csv.renameMethod1()
+                .renameMethod2("a", "3")
+                .renameMethod2("b", "4");
         assertThat(csv.toString(), is(
                 "a,b\n"
                         + "1,2\n"
@@ -40,11 +42,11 @@ public class CsvTest {
     }
 
     @Test public void shouldSupportRowsContainingDifferentColumns() throws Exception {
-        Csv csv = new Csv();
-        csv.newRow()
-                .put("a", "1");
-        csv.newRow()
-                .put("b", "2");
+        RenameClass1 csv = new RenameClass1();
+        csv.renameMethod1()
+                .renameMethod2("a", "1");
+        csv.renameMethod1()
+                .renameMethod2("b", "2");
         assertThat(csv.toString(), is(
                 "a,b\n"
                         + "1,\n"
@@ -54,7 +56,7 @@ public class CsvTest {
 
     @Test
     public void shouldParseCsvFromString() throws Exception {
-        Csv csv = Csv.fromString("a,b\n1,2");
+        RenameClass1 csv = RenameClass1.fromString("a,b\n1,2");
         assertThat(csv.rowCount(), is(1));
         assertThat(csv.containsRow(new HashMap<String, String>() {
             {

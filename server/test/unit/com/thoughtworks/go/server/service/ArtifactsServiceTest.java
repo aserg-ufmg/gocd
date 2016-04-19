@@ -30,6 +30,9 @@ import com.thoughtworks.go.server.dao.StageDao;
 import com.thoughtworks.go.server.domain.LogFile;
 import com.thoughtworks.go.server.view.artifacts.ArtifactDirectoryChooser;
 import com.thoughtworks.go.util.*;
+
+import movedclasses.RenameClass4;
+
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Level;
 import org.hamcrest.Matchers;
@@ -71,7 +74,7 @@ public class ArtifactsServiceTest {
     private File fakeRoot;
     private JobResolverService resolverService;
     private StageDao stageService;
-    private LogFixture logFixture;
+    private RenameClass4 logFixture;
 
     @Before
     public void setUp() {
@@ -82,7 +85,7 @@ public class ArtifactsServiceTest {
         stageService = mock(StageDao.class);
 
         fakeRoot = TestFileUtil.createTempFolder("ArtifactsServiceTest");
-        logFixture = LogFixture.startListening();
+        logFixture = RenameClass4.startListening();
     }
 
     @After

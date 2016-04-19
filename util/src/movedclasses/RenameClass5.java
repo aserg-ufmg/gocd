@@ -14,12 +14,15 @@
  * limitations under the License.
  *************************GO-LICENSE-END***********************************/
 
-package com.thoughtworks.go.util;
+package movedclasses;
+
+import com.thoughtworks.go.util.ThrowingFn;
+
 
 /**
  * @understands: VoidThrowingFn
  */
-public abstract class VoidThrowingFn<E extends Exception> implements ThrowingFn<Object, E> {
+public abstract class RenameClass5<E extends Exception> implements ThrowingFn<Object, E> {
 
     public final Object call() throws E {
         run();

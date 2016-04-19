@@ -14,7 +14,7 @@
  * limitations under the License.
  *************************GO-LICENSE-END***********************************/
 
-package com.thoughtworks.go.util;
+package movedclasses;
 
 import java.util.LinkedHashMap;
 import java.util.Set;
@@ -24,20 +24,16 @@ import java.util.Map;
 import static com.thoughtworks.go.util.ListUtil.join;
 import static com.thoughtworks.go.util.ObjectUtil.defaultIfNull;
 
-public class CsvRow {
+public class RenameClass2 {
     private LinkedHashMap<String, String> rowData = new LinkedHashMap<String, String>();
 
-    public CsvRow put(String name, String value) {
+    public RenameClass2 renameMethod2(String name, String value) {
         rowData.put(name, value);
         return this;
     }
 
     public Set<String> fields() {
         return rowData.keySet();
-    }
-
-    public String get(String key) {
-        return defaultIfNull(rowData.get(key), "");
     }
 
     public String toString() {
@@ -51,7 +47,7 @@ public class CsvRow {
     public String toString(Set<String> keys) {
         ArrayList<String> stringData = new ArrayList<String>();
         for (String field : keys) {
-            stringData.add(this.get(field));
+            stringData.add(defaultIfNull(this.rowData.get(field), ""));
         }
         return join(stringData, ",");
     }

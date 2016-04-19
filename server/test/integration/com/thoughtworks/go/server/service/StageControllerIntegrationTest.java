@@ -27,7 +27,9 @@ import com.thoughtworks.go.server.persistence.MaterialRepository;
 import com.thoughtworks.go.server.transaction.TransactionTemplate;
 import com.thoughtworks.go.server.web.ResponseCodeView;
 import com.thoughtworks.go.util.GoConfigFileHelper;
-import com.thoughtworks.go.util.LogFixture;
+
+import movedclasses.RenameClass4;
+
 import org.apache.log4j.Level;
 import org.junit.After;
 import org.junit.Before;
@@ -58,7 +60,7 @@ public class StageControllerIntegrationTest {
     @Autowired private TransactionTemplate transactionTemplate;
 
     private PipelineWithMultipleStages fixture;
-    private LogFixture logFixture;
+    private RenameClass4 logFixture;
     private MockHttpServletRequest request;
     private MockHttpServletResponse response;
     private GoConfigFileHelper configHelper;
@@ -72,7 +74,7 @@ public class StageControllerIntegrationTest {
         fixture.usingConfigHelper(configHelper).usingDbHelper(dbHelper).onSetUp();
         request = new MockHttpServletRequest();
         response = new MockHttpServletResponse();
-        logFixture = LogFixture.startListening(Level.INFO);
+        logFixture = RenameClass4.startListening(Level.INFO);
     }
 
     @After

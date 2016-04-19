@@ -15,24 +15,20 @@
  *************************GO-LICENSE-END***********************************/
 
 
-package com.thoughtworks.go.util;
+package movedclasses;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.apache.log4j.AppenderSkeleton;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.spi.LoggingEvent;
 
-public class LogFixture extends AppenderSkeleton {
+public class RenameClass4 extends ExtractedSuperClass {
 
-    public static LogFixture startListening() {
+    public static RenameClass4 startListening() {
         return startListening(Level.DEBUG);
     }
 
-    public static LogFixture startListening(Level level) {
-        LogFixture testing = new LogFixture();
+    public static RenameClass4 startListening(Level level) {
+        RenameClass4 testing = new RenameClass4();
         testing.activateOptions();
         setLevel(level);
         Logger.getRootLogger().addAppender(testing);
@@ -55,34 +51,12 @@ public class LogFixture extends AppenderSkeleton {
         Logger.getRootLogger().setLevel(level);
     }
 
-    private List<String> messages = new ArrayList<String>();
-    private List<LoggingEvent> events = new ArrayList<LoggingEvent>();
-
-    private LogFixture() {
+    private RenameClass4() {
     }
 
     protected synchronized void append(LoggingEvent event) {
         events.add(event);
         messages.add(event.getRenderedMessage());
-    }
-
-    public void close() {
-    }
-
-    public boolean requiresLayout() {
-        return false;
-    }
-
-    public String[] getMessages() {
-        return (String[]) messages.toArray(new String[messages.size()]);
-    }
-
-    public void clear() {
-        messages.clear();
-    }
-
-    public String getLog() {
-        return ArrayUtil.join(getMessages());
     }
 
     public synchronized boolean contains(Level level, String message) {

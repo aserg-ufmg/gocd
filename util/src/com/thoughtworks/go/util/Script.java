@@ -14,7 +14,7 @@
  * limitations under the License.
  *************************GO-LICENSE-END***********************************/
 
-package com.thoughtworks.go.util.command;
+package com.thoughtworks.go.util;
 
 public interface Script {
 

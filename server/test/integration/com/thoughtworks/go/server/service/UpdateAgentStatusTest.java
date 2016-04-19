@@ -29,7 +29,9 @@ import com.thoughtworks.go.server.persistence.MaterialRepository;
 import com.thoughtworks.go.server.transaction.TransactionTemplate;
 import com.thoughtworks.go.service.ConfigRepository;
 import com.thoughtworks.go.util.GoConfigFileHelper;
-import com.thoughtworks.go.util.LogFixture;
+
+import movedclasses.RenameClass4;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -120,7 +122,7 @@ public class UpdateAgentStatusTest {
         agentRuntimeInfo1.busy(new AgentBuildingInfo("building", "buildLocator"));
         agentRuntimeInfo1.setLocation("/myDirectory");
 
-        LogFixture logging = LogFixture.startListening();
+        RenameClass4 logging = RenameClass4.startListening();
         agentService.updateRuntimeInfo(agentRuntimeInfo1);
         assertThat(logging.getLog(),
                 containsString("Agent with UUID [uuid] changed IP Address from [10.81.2.1] to [10.18.3.95]"));

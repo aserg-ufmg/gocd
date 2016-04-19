@@ -28,6 +28,7 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
+
 import javax.sql.DataSource;
 
 import com.thoughtworks.go.config.GoMailSender;
@@ -45,7 +46,9 @@ import com.thoughtworks.go.serverhealth.HealthStateType;
 import com.thoughtworks.go.service.ConfigRepository;
 import com.thoughtworks.go.util.SystemEnvironment;
 import com.thoughtworks.go.util.TimeProvider;
-import com.thoughtworks.go.util.VoidThrowingFn;
+
+import movedclasses.RenameClass5;
+
 import org.apache.commons.io.DirectoryWalker;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
@@ -118,7 +121,7 @@ public class BackupService implements BackupStatusProvider {
                 backupStartedBy = username.getUsername().toString();
                 backupVersion(destDir);
                 backupConfig(destDir);
-                configRepository.doLocked(new VoidThrowingFn<IOException>() {
+                configRepository.doLocked(new RenameClass5<IOException>() {
                     @Override public void run() throws IOException {
                         backupConfigRepository(destDir);
                     }

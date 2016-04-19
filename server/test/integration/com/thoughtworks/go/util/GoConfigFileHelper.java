@@ -40,6 +40,7 @@ import com.thoughtworks.go.security.GoCipher;
 import com.thoughtworks.go.server.util.ServerVersion;
 import com.thoughtworks.go.serverhealth.ServerHealthService;
 import com.thoughtworks.go.service.ConfigRepository;
+
 import org.apache.commons.io.FileUtils;
 
 import java.io.ByteArrayOutputStream;

@@ -14,7 +14,7 @@
  * limitations under the License.
  *************************GO-LICENSE-END***********************************/
 
-package com.thoughtworks.go.util;
+package movedclasses;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -24,31 +24,32 @@ import java.util.Set;
 
 import static com.thoughtworks.go.util.ListUtil.join;
 
-public class Csv {
-    private final List<CsvRow> data = new ArrayList<CsvRow>();
+public class RenameClass1 {
+    private final List<RenameClass2> data = new ArrayList<RenameClass2>();
+	private static String[] field;
 
-    public static Csv fromString(String csvContent) {
-        Csv csv = new Csv();
-        String[] lines = csvContent.split("\n");
-        if (lines.length > 1) {
-            String header = lines[0];
+    public static RenameClass1 fromString(String csvContent) {
+        RenameClass1 csv = new RenameClass1();
+        field = csvContent.split("\n");
+        if (field.length > 1) {
+            String header = field[0];
             String[] columns = header.split(",");
 
-            for (int i = 1; i < lines.length; i++) {
-                String line = lines[i];
-                CsvRow row = csv.newRow();
+            for (int i = 1; i < field.length; i++) {
+                String line = field[i];
+                RenameClass2 row = csv.renameMethod1();
                 String[] strings = line.split(",");
                 for (int j = 0; j < strings.length; j++) {
                     String string = strings[j];
-                    row.put(columns[j], string);
+                    row.renameMethod2(columns[j], string);
                 }
             }
         }
         return csv;
     }
 
-    public CsvRow newRow() {
-        CsvRow newRow = new CsvRow();
+    public RenameClass2 renameMethod1() {
+        RenameClass2 newRow = new RenameClass2();
         data.add(newRow);
         return newRow;
     }
@@ -57,7 +58,7 @@ public class Csv {
         Set<String> allFields = fields();
         StringBuffer sb = new StringBuffer();
         sb.append(join(allFields, ",")).append("\n");
-        for (CsvRow row : data) {
+        for (RenameClass2 row : data) {
             sb.append(row.toString(allFields)).append("\n");
         }
         return sb.toString();
@@ -65,7 +66,7 @@ public class Csv {
 
     private Set<String> fields() {
         Set<String> fields = new LinkedHashSet<String>();
-        for (CsvRow row : data) {
+        for (RenameClass2 row : data) {
             fields.addAll(row.fields());
         }
         return fields;
@@ -82,7 +83,7 @@ public class Csv {
      * @return
      */
     public boolean containsRow(Map<String, String> row) {
-        for (CsvRow csvRow : data) {
+        for (RenameClass2 csvRow : data) {
             if (csvRow.contains(row)) {
                 return true;
             }

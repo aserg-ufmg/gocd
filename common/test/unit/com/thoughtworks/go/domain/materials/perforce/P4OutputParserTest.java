@@ -28,10 +28,12 @@ import com.thoughtworks.go.domain.materials.Modification;
 import com.thoughtworks.go.domain.materials.ModifiedAction;
 import com.thoughtworks.go.domain.materials.ModifiedFile;
 import com.thoughtworks.go.util.ClassMockery;
-import com.thoughtworks.go.util.LogFixture;
 import com.thoughtworks.go.util.command.CommandArgument;
 import com.thoughtworks.go.util.command.ConsoleResult;
 import com.thoughtworks.go.util.command.SecretString;
+
+import movedclasses.RenameClass4;
+
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.jmock.Expectations;
@@ -53,14 +55,14 @@ public class P4OutputParserTest {
     private static final SimpleDateFormat DESCRIPTION_FORMAT = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
     private ClassMockery context;
     private P4Client p4Client;
-    public LogFixture logging;
+    public RenameClass4 logging;
 
     @Before
     public void setUp() throws Exception {
         context = new ClassMockery();
         p4Client = context.mock(P4Client.class);
         parser = new P4OutputParser(p4Client);
-        logging = LogFixture.startListening();
+        logging = RenameClass4.startListening();
     }
 
     @After

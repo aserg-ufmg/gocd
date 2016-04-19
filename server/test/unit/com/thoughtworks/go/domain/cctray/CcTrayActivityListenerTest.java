@@ -25,7 +25,9 @@ import com.thoughtworks.go.helper.GoConfigMother;
 import com.thoughtworks.go.helper.JobInstanceMother;
 import com.thoughtworks.go.helper.StageMother;
 import com.thoughtworks.go.server.service.GoConfigService;
-import com.thoughtworks.go.util.LogFixture;
+
+import movedclasses.RenameClass4;
+
 import org.apache.log4j.Level;
 import org.junit.After;
 import org.junit.Before;
@@ -42,7 +44,7 @@ public class CcTrayActivityListenerTest {
     private StubCcTrayStageStatusChangeHandler stageStatusChangeHandler;
     private StubCcTrayConfigChangeHandler configChangeHandler;
     private GoConfigService goConfigService;
-    private LogFixture logFixture;
+    private RenameClass4 logFixture;
 
     @Before
     public void setUp() throws Exception {
@@ -50,7 +52,7 @@ public class CcTrayActivityListenerTest {
         stageStatusChangeHandler = new StubCcTrayStageStatusChangeHandler();
         configChangeHandler = new StubCcTrayConfigChangeHandler();
         goConfigService = mock(GoConfigService.class);
-        logFixture = LogFixture.startListening(Level.WARN);
+        logFixture = RenameClass4.startListening(Level.WARN);
     }
 
     @After

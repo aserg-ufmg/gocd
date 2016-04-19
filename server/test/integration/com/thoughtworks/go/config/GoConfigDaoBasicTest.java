@@ -17,7 +17,9 @@ package com.thoughtworks.go.config;
 
 import com.thoughtworks.go.helper.ConfigFileFixture;
 import com.thoughtworks.go.util.GoConfigFileHelper;
-import com.thoughtworks.go.util.LogFixture;
+
+import movedclasses.RenameClass4;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -37,7 +39,7 @@ public class GoConfigDaoBasicTest extends GoConfigDaoTestBase {
     @Before
     public void setup() throws Exception {
         configHelper.initializeConfigFile();
-        logger = LogFixture.startListening();
+        logger = RenameClass4.startListening();
     }
 
     @After

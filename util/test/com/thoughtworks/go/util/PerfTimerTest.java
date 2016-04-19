@@ -19,6 +19,7 @@ package com.thoughtworks.go.util;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.StringContains.containsString;
 import static org.junit.Assert.assertThat;
+import movedclasses.RenameClass4;
 
 import org.junit.Test;
 
@@ -53,7 +54,7 @@ public class PerfTimerTest {
 
         clock.addSeconds(1);
 
-        LogFixture log = LogFixture.startListening();
+        RenameClass4 log = RenameClass4.startListening();
         timer.stop();
         assertThat(log.getLog(), containsString("Performance: Message took 1000ms"));
         log.stopListening();
@@ -76,7 +77,7 @@ public class PerfTimerTest {
 
         clock.addSeconds(1);
 
-        LogFixture log = LogFixture.startListening();
+        RenameClass4 log = RenameClass4.startListening();
         timer.stop();
         assertThat(log.getLog(), containsString("Performance: Message took 1000ms"));
         log.stopListening();
